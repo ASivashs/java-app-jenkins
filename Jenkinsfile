@@ -2,7 +2,7 @@ def gv
 
 pipeline {
     agent any
-    parameters{
+    parameters {
         choice(name: 'VERSION', choices: ['1.1.0', '1.2.0', '1.3.0'], description: '')
         booleanParam(name: 'executeTests', defaultValue: true, description: '')
     }
@@ -11,6 +11,7 @@ pipeline {
             steps{
                 script {
                     gv = load "script.groovy"
+                    gv.initApp()
                 }
             }
         }
@@ -23,7 +24,7 @@ pipeline {
         }
         stage("test") {
             steps {
-                when{
+                when {
                     expression {
                         params.executeTests
                     }

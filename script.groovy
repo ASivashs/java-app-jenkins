@@ -1,3 +1,7 @@
+def initApp() {
+    echo "Initalizing app"
+}
+
 def buildApp() {
     echo "Build app"
 }
